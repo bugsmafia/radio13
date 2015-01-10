@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.radio13.Player"
+        versionCode="10" 
+        version   = "1.0.1">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Радио 13</name>
+
+    <description>
+        Интернет радиостанция
+    </description>
+
+    <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">
+        Разработчик: Сергей Осипов
+    </author>
+    <gap:splash src="150.png" />
+    <icon src="150.png" />
+			<preference name="Load-url-timeout" value="15000" />
+</widget>
