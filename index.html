@@ -12,10 +12,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-
 		<div id="tabwr" class="tab-content col-sm-12 col-md-12 main">
-
-			
 				<div id="wrapper">
 					<div id="comments">		
 						<div class="comment">
@@ -26,7 +23,6 @@
 						</div>
 					</div>
 				</div>
-			
 				<div id="player" class="col-sm-12 col-md-12 main">
 					<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 					<div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
@@ -55,109 +51,20 @@
 						</div>
 					</div>
 				</div>
-				<h1>История нововведений и изменений</h1>
-				
-					<div class="container" style="overflow-y: auto;height: 497px;">
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-md-6">
-								<div id="postlist">
-									<div class="panel">
-										<div class="panel-heading">
-											<div class="text-center">
-												<div class="row">
-													<div class="col-sm-9">
-														<h3 class="pull-left">3.0</h3>
-													</div>
-													<div class="col-sm-3">
-														<h4 class="pull-right">
-														<small><em>2015-01-10</em></small>
-														</h4>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-									<div class="panel-body">
-										<p>[*] Проведена серверная оптимизация работы приложения</p>
-										<p>[+] Внутри приложения появилось большое кол-во разделов</p>
-										<p>[+] Добавлен раздел "Чарт ТОП 13"</p>
-									</div>
-								</div>
-								
-								<div class="panel">
-										<div class="panel-heading">
-											<div class="text-center">
-												<div class="row">
-													<div class="col-sm-9">
-														<h3 class="pull-left">2.0</h3>
-													</div>
-													<div class="col-sm-3">
-														<h4 class="pull-right">
-														<small><em>2015-01-9</em></small>
-														</h4>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-									<div class="panel-body">
-										<p>[+] Онлайн голосование за текущий трек в эфире в реальном времени</p>
-										<p>[*] Улучшин дизайн</p>
-										<p>[*] Повышена стабильность работы</p>
-									</div>
-								</div>
-								
-								<div class="panel">
-										<div class="panel-heading">
-											<div class="text-center">
-												<div class="row">
-													<div class="col-sm-9">
-														<h3 class="pull-left">1.0</h3>
-													</div>
-													<div class="col-sm-3">
-														<h4 class="pull-right">
-														<small><em>2015-01-8</em></small>
-														</h4>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-									<div class="panel-body">
-										<p>[+] Онлайн плеер</p>
-										<p>[+] Статусная строка "Сейчас в эфире"</p>
-									</div>
-								</div>
-								
-							</div>
 
-						</div>
-						</div>
-						</div>
 			</div>
 			
 		</div>
 	</div>
 </div>
-
-
-
-
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/jquery.mobile.min.js" type="text/javascript"></script>
 <script src="js/core.js" type="text/javascript"></script>
 <script src="js/jplayer.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
-
 <script>
-	
-// var rateid, rateusr, rateup, ratedown;
-
 setInterval(function(){
-		
-		
-		$.getJSON("json.php", function(tinfo) {
+		$.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
 			var nametrack = tinfo.artist + ' - ' + tinfo.song;
 			var imgalb = tinfo.comment;
 			if(imgalb == null || imgalb == '') {
@@ -174,7 +81,7 @@ setInterval(function(){
 			
 		});
 		
-		$.getJSON("ajax.php", function(rate) {
+		$.getJSON("http://app.radio13.ru/chart3/ajax.php", function(rate) {
 
 			
 			var rateid = rate.id;
@@ -218,10 +125,6 @@ setInterval(function(){
 				};
 			};
 		});
-
-	var ta = $('#artist').text();
-	var ts = $('#song').text();
-	var nametrack = ta + ' - ' + ts;
  }, 25000);
 </script>
 
