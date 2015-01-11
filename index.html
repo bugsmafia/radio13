@@ -133,37 +133,7 @@ setInterval(function(){
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
-$.getJSON("http://app.radio13.ru/chart3/json.php", function(preinfo) {
-	var preimgalb = preinfo.comment;
-	if(preimgalb == null || preimgalb == '') {
-		preimgalb = 'images/no-image.jpg';
-	};
-	var pretrackid = preinfo.id;
-	$('#artist').text(preinfo.artist);
-	$('#song').text(preinfo.song);
-	$('#imgalb').attr('src', preimgalb);
 
-	$('#votebtnup').data('item', pretrackid);
-	$('#votebtndown').data('item', pretrackid);
-	
-	var pretrateup = preinfo.up;
-	var tratedown = preinfo.down;
-	$('#voteiup').text(pretrateup);
-	$('#voteidown').text(tratedown);
-	
-	if(pretrateup == 0) {
-		$('#upt').fadeOut(650);
-		}
-		else{
-		$('#upt').fadeIn(650);
-	};
-	if(tratedown == 0) {
-		$('#downt').fadeOut(650);
-		}
-		else{
-			$('#downt').fadeIn(650);
-	};
-});
 	var stream = {
 		title: "Радио 13 - прямая трансляция (128 kb/s)",
 		mp3: "http://play.radio13.ru"
