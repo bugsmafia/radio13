@@ -166,7 +166,7 @@ $.getJSON("http://app.radio13.ru/chart3/json.php", function(preinfo) {
 });
 	var stream = {
 		title: "Радио 13 - прямая трансляция (128 kb/s)",
-		mp3: "http://play.radio13.ru/64"
+		mp3: "http://play.radio13.ru"
 	},
 	ready = false;
 
@@ -185,7 +185,7 @@ $.getJSON("http://app.radio13.ru/chart3/json.php", function(preinfo) {
 			}
 		},
 		swfPath: "../dist/jplayer",
-		supplied: "m4v",
+		supplied: "mp3",
 		preload: "none",
 		wmode: "window",
 		useStateClassSkin: true,

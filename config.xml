@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.radio13.Player"
         versionCode="10" 
-        version   = "1.2.2">
+        version   = "1.2.3">
     <name>Радио 13</name>
 
     <description>Интернет радиостанция</description>
