@@ -16,10 +16,10 @@
 				<div id="wrapper">
 					<div id="comments">
 						<div class="imgblock">
-							<img id="imgalb" src="http://userserve-ak.last.fm/serve/300x300/101051485.png">
+							<img id="imgalb" src="images/no-image.jpg">
 							<div class="comment">
-								<h2 id="artist">Группа</h2>
-								<h4 id="song">Название трека</h4>
+								<h2 id="artist"></h2>
+								<h4 id="song"></h4>
 							</div>
 						</div>
 						
@@ -81,9 +81,7 @@ setInterval(function(){
 			$('#imgalb').attr('src', imgalb);
 			console.log(trackid);
 			$('#votebtnup').data('item', trackid);
-			$('#votebtndown').data('item', trackid);
-			
-			
+			$('#votebtndown').data('item', trackid);			
 		});
 		
 		$.getJSON("http://app.radio13.ru/chart3/ajax.php", function(rate) {
@@ -135,7 +133,38 @@ setInterval(function(){
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
+$.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
+	var nametrack = tinfo.artist + ' - ' + tinfo.song;
+	var imgalb = tinfo.comment;
+	if(imgalb == null || imgalb == '') {
+		imgalb = 'images/no-image.jpg';
+	};
+	var trackid = tinfo.id;
+	$('#artist').text(tinfo.artist);
+	$('#song').text(tinfo.song);
+	$('#imgalb').attr('src', imgalb);
 
+	$('#votebtnup').data('item', trackid);
+	$('#votebtndown').data('item', trackid);
+	
+	var trateup = tinfo.up;
+	var tratedown = tinfo.down;
+	$('#voteiup').text(trateup);
+	$('#voteidown').text(tratedown);
+	
+	if(trateup == 0) {
+		$('#upt').fadeOut(650);
+		}
+		else{
+		$('#upt').fadeIn(650);
+	};
+	if(tratedown == 0) {
+		$('#downt').fadeOut(650);
+		}
+		else{
+			$('#downt').fadeIn(650);
+	};
+});
 	var stream = {
 		title: "Радио 13 - прямая трансляция (128 kb/s)",
 		mp3: "http://play.radio13.ru/"

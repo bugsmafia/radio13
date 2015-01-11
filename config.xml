@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.radio13.Player"
         versionCode="10" 
-        version   = "1.1.1">
+        version   = "1.2">
     <name>Радио 13</name>
 
     <description>Интернет радиостанция</description>
@@ -24,6 +24,5 @@
     <gap:splash src="screen/hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="screen/xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
 	<gap:splash src="screen/xxhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xxhdpi" />
-    
-			<preference name="Load-url-timeout" value="15000" />
+
 </widget>
