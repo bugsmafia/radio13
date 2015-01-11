@@ -18,7 +18,7 @@
 						<div class="imgblock">
 							<img id="imgalb" src="images/no-image.jpg">
 							<div class="comment">
-								<h2 id="artist"></h2>
+								<h2 id="artist">---</h2>
 								<h4 id="song"></h4>
 							</div>
 						</div>
@@ -81,7 +81,9 @@ setInterval(function(){
 			$('#imgalb').attr('src', imgalb);
 			console.log(trackid);
 			$('#votebtnup').data('item', trackid);
-			$('#votebtndown').data('item', trackid);			
+			$('#votebtndown').data('item', trackid);
+			
+			
 		});
 		
 		$.getJSON("http://app.radio13.ru/chart3/ajax.php", function(rate) {
@@ -136,7 +138,7 @@ jQuery(document).ready(function(){
 
 	var stream = {
 		title: "Радио 13 - прямая трансляция (128 kb/s)",
-		mp3: "http://play.radio13.ru"
+		mp3: "http://play.radio13.ru/"
 	},
 	ready = false;
 
