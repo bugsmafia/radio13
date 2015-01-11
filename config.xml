@@ -3,20 +3,27 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.radio13.Player"
         versionCode="10" 
-        version   = "1.0.1">
-
-    <!-- versionCode is optional and Android only -->
-
+        version   = "1.1">
     <name>Радио 13</name>
 
-    <description>
-        Интернет радиостанция
-    </description>
+    <description>Интернет радиостанция</description>
 
-    <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">
-        Разработчик: Сергей Осипов
-    </author>
-    <gap:splash src="150.png" />
-    <icon src="150.png" />
+    <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">Разработчик: Сергей Осипов</author>
+	
+	<preference name="permissions"                value="none"/>
+	
+	<icon src="icon.png" />
+    <icon src="icon/36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="icon/48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="icon/72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="icon/96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+	<icon src="icon/144-xxhdpi.png"  gap:platform="android"    gap:qualifier="xxhdpi" />
+	
+    <gap:splash src="screen/ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="screen/mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="screen/hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="screen/xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
+	<gap:splash src="screen/xxhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xxhdpi" />
+    
 			<preference name="Load-url-timeout" value="15000" />
 </widget>

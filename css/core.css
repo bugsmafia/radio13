@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(font/r1.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(font/l1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(font/r3.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(font/l3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(font/r4.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(font/l4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -266,6 +308,7 @@ body {
 	line-height: 1.6;
 	background: #f1f0ed;
 	-webkit-font-smoothing:antialiased;
+	background-image: url('../images/footer_lodyas.png');
 
 }
 body,a {
@@ -299,8 +342,17 @@ h2#artist {
 	padding-bottom: 7px;
 }
 .comment {
-	padding-bottom: 10px;
-	margin-bottom: 10px;
+  padding-bottom: 5%;
+  /* margin-bottom: 5%; */
+  position: absolute;
+  bottom: 0px;
+  margin: 2%;
+  width: 98%;
+  text-shadow: 1px 1px 1px #000;
+  color: #FFF;
+}
+.imgblock {
+  position: relative;
 }
 .comment p {
 	padding: 0;
@@ -337,7 +389,7 @@ time {
 
 div#player {
   position: fixed;
-  height: 68px;
+    height: 20%;
   overflow: hidden;
   background: #FFF;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
@@ -346,6 +398,7 @@ div#player {
   bottom: 0px;
   display: block;
   padding: 0px;
+  width: 100%;
 }
 .w_p {
   width: 300px;
@@ -404,6 +457,7 @@ div#play {
 
 .jp-audio-stream {
 	width: 100%;
+	  height: 100%;
 }
 .jp-video-270p {
   width: 480px; }
@@ -451,7 +505,8 @@ div#play {
 
 .jp-interface {
   position: relative;
-  width: 100%; }
+  width: 100%; 
+  height: 100%;}
 
 .jp-audio .jp-interface {}
 
@@ -473,7 +528,9 @@ div#play {
 .jp-interface .jp-controls {
   margin: 0;
   padding: 0;
-  overflow: hidden; }
+  overflow: hidden; 
+  height: 100%;
+  }
 
 .jp-audio .jp-controls {
   width: 380px;
@@ -498,9 +555,10 @@ div#play {
   overflow: hidden;
   border: none;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 2.3em;
 	font-weight: 100;
 	color: #FFF;
+height: 100%;
 }
 
 .jp-play {
@@ -595,13 +653,14 @@ div#play {
 
 .jp-volume-controls {
   position: absolute;
-  top: 43px;
+   bottom: 0px;
   left: 308px;
   width: 100%;
 }
 
 .jp-audio-stream .jp-volume-controls {
-  left: 0px; }
+  left: 0px;
+  height: 45%; }
 
 .jp-video .jp-volume-controls {
   top: 12px;
@@ -628,18 +687,18 @@ div#play {
 .jp-volume-bar {
 
   overflow: hidden;
-background-color: rgba(0, 0, 0, 0.3);
+background-color: #888;
 border-top: 1px solid #e89565;
 border-left: 1px solid #e89565;
   width: 100%;
-  height: 23px;
+  height: 100%;
   cursor: pointer; }
 
 .jp-volume-bar-value {
   background-color: rgba(226, 122, 63, 1);
   opacity: 0.7;
   width: 0px;
-  height: 23px; }
+    height: 100%; }
 
 /* @end */
 /* @group current time and duration */
@@ -1312,4 +1371,9 @@ a#menu {
 
 .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
   outline: none !important;
+}
+
+
+.jp-type-single {
+  height: 100%;
 }
