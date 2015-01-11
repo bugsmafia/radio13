@@ -133,26 +133,25 @@ setInterval(function(){
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
-$.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
-	var nametrack = tinfo.artist + ' - ' + tinfo.song;
-	var imgalb = tinfo.comment;
-	if(imgalb == null || imgalb == '') {
-		imgalb = 'images/no-image.jpg';
+$.getJSON("http://app.radio13.ru/chart3/json.php", function(preinfo) {
+	var preimgalb = preinfo.comment;
+	if(preimgalb == null || preimgalb == '') {
+		preimgalb = 'images/no-image.jpg';
 	};
-	var trackid = tinfo.id;
-	$('#artist').text(tinfo.artist);
-	$('#song').text(tinfo.song);
-	$('#imgalb').attr('src', imgalb);
+	var pretrackid = preinfo.id;
+	$('#artist').text(preinfo.artist);
+	$('#song').text(preinfo.song);
+	$('#imgalb').attr('src', preimgalb);
 
-	$('#votebtnup').data('item', trackid);
-	$('#votebtndown').data('item', trackid);
+	$('#votebtnup').data('item', pretrackid);
+	$('#votebtndown').data('item', pretrackid);
 	
-	var trateup = tinfo.up;
-	var tratedown = tinfo.down;
-	$('#voteiup').text(trateup);
+	var pretrateup = preinfo.up;
+	var tratedown = preinfo.down;
+	$('#voteiup').text(pretrateup);
 	$('#voteidown').text(tratedown);
 	
-	if(trateup == 0) {
+	if(pretrateup == 0) {
 		$('#upt').fadeOut(650);
 		}
 		else{
@@ -167,7 +166,7 @@ $.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
 });
 	var stream = {
 		title: "Радио 13 - прямая трансляция (128 kb/s)",
-		mp3: "http://play.radio13.ru/"
+		mp3: "http://play.radio13.ru/64"
 	},
 	ready = false;
 
@@ -186,7 +185,7 @@ $.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
 			}
 		},
 		swfPath: "../dist/jplayer",
-		supplied: "mp3",
+		supplied: "m4v",
 		preload: "none",
 		wmode: "window",
 		useStateClassSkin: true,
