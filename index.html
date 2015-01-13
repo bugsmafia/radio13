@@ -105,19 +105,24 @@ console.error = console.debug = console.info =  console.log
     function onDeviceReady() {
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
-		$('#debug').append('<p>onDeviceReady backbutton</p>');
+		document.addEventListener("menubutton", onMenuKeyDown, false);
     }
 
     // Handle the back button
     //
     function onBackKeyDown() {
-		$('#debug').append('<p>onBackKeyDown</p>');
 		$.jGrowl("Отлично и уведомление работает", {
-			header: 'Ты вызвал меню',
-			sticky: true,
+			header: 'Ты наэал ВОЗВРАТ',
+			life: 3000,
 			theme: 'default'
-		});
-		
+		});		
+    }
+	function onMenuKeyDown() {
+		$.jGrowl("Отлично и уведомление работает", {
+			header: 'Ты вызвал МЕНЮ, но его пока нет',
+			life: 3000,
+			theme: 'default'
+		});	
     }
 $.jGrowl.defaults.closerTemplate = '<div class="inverse">закрыть уведомления</div>';	
     </script>
@@ -147,7 +152,7 @@ jQuery(document).ready(function(){
 				$(this).jPlayer("setMedia", stream).jPlayer("play");
 			}
 		},
-		swfPath: "../dist/jplayer",
+		volume: 1,
 		supplied: "mp3",
 		preload: "none",
 		wmode: "window",

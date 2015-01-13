@@ -14,6 +14,11 @@ var rateObject = {
 					thisObj.parent('.rateWrapper').find('.rate').addClass('active').removeClass('rate');
 					thisObj.addClass('active');
 					thisObj.attr("disabled", true);
+					$.jGrowl("Отлично, мы ценим твой выбор. Принято!", {
+						header: 'Голосование',
+						life: 3000,
+						theme: 'default'
+					});	
 				}
 			});
 			e.preventDefault();
