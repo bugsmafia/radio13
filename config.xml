@@ -29,5 +29,6 @@
 	<gap:splash src="screen/xxhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xxhdpi" />
 	
 	<gap:plugin name="uk.co.whiteoctober.cordova.appversion"/>
+	<gap:plugin name="com.footprint.cordova.plugin.local-notification"/>
 
 </widget>
