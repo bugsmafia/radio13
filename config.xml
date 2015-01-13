@@ -11,16 +11,8 @@
         <access origin="*" />
     </widget>
 	
+	<preference name="phonegap-version"   value="4.0.0" />
 
-	<gap:platform name="android" />
-	
-	<supports-screens android:anyDensity="true" android:resizeable="true" android:smallScreens="true"     android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
-	<gap:config-file platform="android" parent="/manifest">
-    <supports-screens 
-        android:xlargeScreens="false" 
-        android:largeScreens="false" 
-        android:smallScreens="false" />
-	</gap:config-file>
 	<icon src="icon/144-xxhdpi.png" />
     <icon src="icon/36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="icon/48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
