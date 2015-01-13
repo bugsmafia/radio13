@@ -92,12 +92,8 @@ console.error = console.debug = console.info =  console.log
 <script src="js/jgrowl.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-    // Wait for device API libraries to load
-    //
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
-		$('#debug').append('<p>мы загрузились</p>');
     }
 
     // device APIs are available
@@ -111,15 +107,15 @@ console.error = console.debug = console.info =  console.log
     // Handle the back button
     //
     function onBackKeyDown() {
-		$.jGrowl("Отлично и уведомление работает", {
+		$.jGrowl("Еще не реализованно", {
 			header: 'Ты наэал ВОЗВРАТ',
 			life: 3000,
 			theme: 'default'
 		});		
     }
 	function onMenuKeyDown() {
-		$.jGrowl("Отлично и уведомление работает", {
-			header: 'Ты вызвал МЕНЮ, но его пока нет',
+		$.jGrowl("Еще не реализованно", {
+			header: 'Ты вызвал МЕНЮ',
 			life: 3000,
 			theme: 'default'
 		});	
