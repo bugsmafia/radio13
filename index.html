@@ -126,11 +126,6 @@ console.error = console.debug = console.info =  console.log
 			life: 3000,
 			theme: 'default'
 		});
-	window.plugin.notification.local.add({
-		id:         1,
-		message:    'I love Radio13!',
-		json:       JSON.stringify({ test: 123 })
-	});
 
  }
 $.jGrowl.defaults.closerTemplate = '<div class="inverse">закрыть уведомления</div>';	
@@ -285,9 +280,14 @@ jQuery(document).ready(function(){
 				};
 			};
 		});
+		
+		window.plugin.notification.local.add({
+			id:         1,
+			message:    'I love BlackBerry!',
+			json:       JSON.stringify({ test: 123 })
+		});
 	}, 25000);
 });
-
 </script>
 </body>
 </html>
