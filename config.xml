@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-	<widget id="com.radio13.player" version="1.4.1" versionCode="10">
-	<name>Радио 13</name>
-	<description>
-		Интернет радиостанция
-	</description>
-	<author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">
-		Разработчик: Сергей Осипов
-	</author>
-	<content src="index.html" />
-	<access origin="*" />
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.radio13.Player"
+        versionCode="10" 
+        version   = "1.4.4">
+    <name>Радио 13</name>
 
+    <description>Интернет радиостанция</description>
 
-
+    <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">Разработчик: Сергей Осипов</author>
+	
+	<preference name="permissions"                value="none"/>
+	<gap:platform name="android" />
+	<supports-screens android:anyDensity="true" android:resizeable="true" android:smallScreens="true"     android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" />
+	<gap:config-file platform="android" parent="/manifest">
+    <supports-screens 
+        android:xlargeScreens="true" 
+        android:largeScreens="true" 
+        android:smallScreens="true" />
+	</gap:config-file>
 	<icon src="icon/144-xxhdpi.png" />
-	<icon src="icon/36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-	<icon src="icon/48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-	<icon src="icon/72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-	<icon src="icon/96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
-	<icon src="icon/144-xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
-
+    <icon src="icon/36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="icon/48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="icon/72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="icon/96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+	<icon src="icon/144-xxhdpi.png"  gap:platform="android"    gap:qualifier="xxhdpi" />
+	
 	<gap:splash src="screen/hdpi-portrait.png" />
-	<gap:splash src="screen/ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi" />
-	<gap:splash src="screen/mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi" />
-	<gap:splash src="screen/hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi" />
-	<gap:splash src="screen/xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi" />
-	<gap:splash src="screen/xxhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
+    <gap:splash src="screen/ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="screen/mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="screen/hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="screen/xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
+	<gap:splash src="screen/xxhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xxhdpi" />
 
 </widget>
