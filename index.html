@@ -281,29 +281,16 @@ jQuery(document).ready(function(){
 			};
 		});
 		
-		// window.plugin.notification.local.add({
-		//	id:         1,
-		//	message:    'I love BlackBerry!',
-		//	json:       JSON.stringify({ test: 123 })
-		// });
-		 // window.plugin.notification.local.add({ message: 'Great app!' });
 
 
 		window.plugin.notification.local.add({
 			id:         1, // is converted to a string
-			title:      'Reminder',
-			message:    'Dont forget to buy some flowers.',
-			foreground: 'foreground',
-			background: 'background'
+			title:      'Радио 13',
+			message:  nametrack, 
+			sound: null
 		});
 
-		function foreground (id) {
-			console.log('I WAS RUNNING ID='+id)
-		}
 
-		function background (id) {
-			console.log('I WAS IN THE BACKGROUND ID='+id)
-		}
 
 	}, 25000);
 });
