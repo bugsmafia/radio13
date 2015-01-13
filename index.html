@@ -97,7 +97,7 @@ console.error = console.debug = console.info =  console.log
     //
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
-		console.log(deviceready);
+		$('#debug').append('<p>мы загрузились</p>');
     }
 
     // device APIs are available
@@ -105,13 +105,13 @@ console.error = console.debug = console.info =  console.log
     function onDeviceReady() {
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
-		console.log(backbutton);
+		$('#debug').append('<p>onDeviceReady backbutton</p>');
     }
 
     // Handle the back button
     //
     function onBackKeyDown() {
-		console.log(onBackKeyDown);
+		$('#debug').append('<p>onBackKeyDown</p>');
 		$.jGrowl("Отлично и уведомление работает", {
 			header: 'Ты вызвал меню',
 			sticky: true,
