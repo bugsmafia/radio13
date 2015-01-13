@@ -20,6 +20,7 @@ console.log = function(message) {
 };
 console.error = console.debug = console.info =  console.log
 </script>	
+<script src="cordova.js"></script>
 </head>
 <body>
 
@@ -88,6 +89,37 @@ console.error = console.debug = console.info =  console.log
 <script src="js/core.js" type="text/javascript"></script>
 <script src="js/jplayer.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jgrowl.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+
+    // Handle the back button
+    //
+    function onBackKeyDown() {
+	
+		$.jGrowl("Отлично и уведомление работает", {
+			header: 'Ты вызвал меню',
+			sticky: true,
+			theme: 'default'
+		});
+		
+    }
+$.jGrowl.defaults.closerTemplate = '<div class="inverse">закрыть уведомления</div>';	
+    </script>
+
 <script>
 
 
