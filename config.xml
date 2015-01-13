@@ -9,8 +9,6 @@
 	</author>
 	<content src="index.html" />
 	<access origin="*" />
-
-	<gap:platform name="android" />
 	<supports-screens android:anyDensity="true" android:resizeable="true" android:smallScreens="true"     android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
 	<gap:config-file platform="android" parent="/manifest">
 		<supports-screens	android:xlargeScreens="false"	android:largeScreens="false"	android:smallScreens="false" />
