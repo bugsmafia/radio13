@@ -91,7 +91,7 @@ console.error = console.debug = console.info =  console.log
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jgrowl.js" type="text/javascript"></script>
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
 
     // Wait for device API libraries to load
     //
@@ -109,7 +109,7 @@ console.error = console.debug = console.info =  console.log
     // Handle the back button
     //
     function onBackKeyDown() {
-	
+		console.log(onBackKeyDown);
 		$.jGrowl("Отлично и уведомление работает", {
 			header: 'Ты вызвал меню',
 			sticky: true,
