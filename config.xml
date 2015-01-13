@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-	<widget id="com.radio13.player" version="1.4" versionCode="10">
+	<widget id="com.radio13.player" version="1.4.1" versionCode="10">
 	<name>Радио 13</name>
 	<description>
 		Интернет радиостанция
