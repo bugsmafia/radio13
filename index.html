@@ -89,8 +89,43 @@ console.error = console.debug = console.info =  console.log
 <script src="js/jplayer.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script>
-setInterval(function(){
-		$.getJSON("http://app.radio13.ru/chart3/json.php", function(tinfo) {
+
+
+
+jQuery(document).ready(function(){
+
+	var stream = {
+		title: "Радио 13 - прямая трансляция (128 kb/s)",
+		mp3: "http://play.radio13.ru/"
+	},
+	ready = false;
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			ready = true;
+			$(this).jPlayer("setMedia", stream);
+		},
+		pause: function() {
+			$(this).jPlayer("clearMedia");
+		},
+		error: function(event) {
+			if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+				// Setup the media stream again and play it.
+				$(this).jPlayer("setMedia", stream).jPlayer("play");
+			}
+		},
+		swfPath: "../dist/jplayer",
+		supplied: "mp3",
+		preload: "none",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		keyEnabled: true
+	});
+	
+	
+	
+	$.getJSON("https://app.radio13.ru/chart4/json.php", function(tinfo) {
 			var nametrack = tinfo.artist + ' - ' + tinfo.song;
 			var imgalb = tinfo.comment;
 			if(imgalb == null || imgalb == '') {
@@ -101,14 +136,10 @@ setInterval(function(){
 			$('#song').text(tinfo.song);
 			$('#imgalb').attr('src', imgalb);
 			$('#votebtnup').data('item', trackid);
-			$('#votebtndown').data('item', trackid);
-			
-			
+			$('#votebtndown').data('item', trackid);			
 		});
 		
-		$.getJSON("http://app.radio13.ru/chart3/ajax.php", function(rate) {
-
-			
+		$.getJSON("https://app.radio13.ru/chart4/ajax.php", function(rate) {			
 			var rateid = rate.id;
 			var rateusr = rate.usr;
 			var rateup = rate.up;
@@ -116,8 +147,7 @@ setInterval(function(){
 			$('#votebtnup').attr('data-item', rateid);
 			$('#votebtndown').attr('data-item', rateid);
 			$('#voteiup').text(rateup);
-			$('#voteidown').text(ratedown);
-			
+			$('#voteidown').text(ratedown);	
 			
 			if(rateup == 0) {
 				$('#upt').fadeOut(650);
@@ -150,40 +180,65 @@ setInterval(function(){
 				};
 			};
 		});
- }, 25000);
-</script>
-
-<script type="text/javascript">
-jQuery(document).ready(function(){
-
-	var stream = {
-		title: "Радио 13 - прямая трансляция (128 kb/s)",
-		mp3: "http://play.radio13.ru/"
-	},
-	ready = false;
-
-	$("#jquery_jplayer_1").jPlayer({
-		ready: function (event) {
-			ready = true;
-			$(this).jPlayer("setMedia", stream);
-		},
-		pause: function() {
-			$(this).jPlayer("clearMedia");
-		},
-		error: function(event) {
-			if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
-				// Setup the media stream again and play it.
-				$(this).jPlayer("setMedia", stream).jPlayer("play");
+	
+	
+	setInterval(function(){
+		$.getJSON("https://app.radio13.ru/chart4/json.php", function(tinfo) {
+			var nametrack = tinfo.artist + ' - ' + tinfo.song;
+			var imgalb = tinfo.comment;
+			if(imgalb == null || imgalb == '') {
+				imgalb = 'images/no-image.jpg';
+			};
+			var trackid = tinfo.id;
+			$('#artist').text(tinfo.artist);
+			$('#song').text(tinfo.song);
+			$('#imgalb').attr('src', imgalb);
+			$('#votebtnup').data('item', trackid);
+			$('#votebtndown').data('item', trackid);			
+		});
+		
+		$.getJSON("https://app.radio13.ru/chart4/ajax.php", function(rate) {			
+			var rateid = rate.id;
+			var rateusr = rate.usr;
+			var rateup = rate.up;
+			var ratedown = rate.down;
+			$('#votebtnup').attr('data-item', rateid);
+			$('#votebtndown').attr('data-item', rateid);
+			$('#voteiup').text(rateup);
+			$('#voteidown').text(ratedown);	
+			
+			if(rateup == 0) {
+				$('#upt').fadeOut(650);
 			}
-		},
-		swfPath: "../dist/jplayer",
-		supplied: "mp3",
-		preload: "none",
-		wmode: "window",
-		useStateClassSkin: true,
-		autoBlur: false,
-		keyEnabled: true
-	});
+			else{
+				$('#upt').fadeIn(650);
+			};
+			if(ratedown == 0) {
+				$('#downt').fadeOut(650);
+			}
+			else{
+				$('#downt').fadeIn(650);
+			};
+			
+			if(rateusr == '2') {
+				$('#votebtnup').removeClass('rateDone active').addClass('rate').removeAttr('disabled', 'disabled');
+				$('#votebtndown').removeClass('rateDone active').addClass('rate').removeAttr('disabled', 'disabled');
+			}
+			else{			
+				$('#votebtnup').removeClass('rate').addClass('rateDone').attr('disabled', 'disabled');
+				$('#votebtndown').removeClass('rate').addClass('rateDone').attr('disabled', 'disabled');
+				
+				if(rateusr == '1') {
+					$('#votebtnup').addClass('active');
+					$('#votebtndown').removeClass('active');
+				}
+				else {
+					$('#votebtnup').removeClass('active');
+					$('#votebtndown').addClass('active');
+				};
+			};
+		});
+	}, 25000);
 });
 
 </script>

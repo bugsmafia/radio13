@@ -9,9 +9,7 @@ var rateObject = {
 			var thisItem = thisObj.attr('data-item');
 			var thisValue = thisObj.children('button > span').text();
 			$.getJSON(rateObject.urlRate, { type : thisType, item : thisItem }, function(data) {
-				alert('getJSON rateObject');
 				if (!data.error) {
-					alert('getJSON data.error');
 					thisObj.children('button > span').html(parseInt(thisValue, 10) + 1);
 					thisObj.parent('.rateWrapper').find('.rate').addClass('active').removeClass('rate');
 					thisObj.addClass('active');
