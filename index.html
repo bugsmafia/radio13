@@ -286,13 +286,11 @@ jQuery(document).ready(function(){
 		//	message:    'I love BlackBerry!',
 		//	json:       JSON.stringify({ test: 123 })
 		// });
-		
-		window.plugins.webintent.startActivity({
-			action: window.plugins.webintent.ACTION_VIEW,
-			url: 'http://userserve-ak.last.fm/serve/300x300/67365930.jpg'}, 
-			function() {}, 
-			function() {alert('Failed to open URL via Android Intent')};
-		);
+		 
+		var openFn = function() {
+		   window.OpenApplication(app_package);
+		};
+		document.addEventListener('deviceready', openFn, false);
 	}, 25000);
 });
 
