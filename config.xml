@@ -18,7 +18,7 @@
 	<icon src="icon/72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
 	<icon src="icon/96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
 	<icon src="icon/144-xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
-	<preference name="SplashScreenDelay" value="5000" />
+
 	<gap:splash src="screen/hdpi-portrait.png" />
 	<gap:splash src="screen/ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi" />
 	<gap:splash src="screen/mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi" />
