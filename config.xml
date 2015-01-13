@@ -10,7 +10,7 @@
 	<content src="index.html" />
 	<access origin="*" />
 
-	<preference name="phonegap-version"   value="4.0.0" />
+	<preference name="phonegap-version"   value="3.6" />
 	<gap:platform name="android" />
 	<supports-screens android:anyDensity="true" android:resizeable="true" android:smallScreens="true"     android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
 	<gap:config-file platform="android" parent="/manifest">
