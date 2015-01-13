@@ -7,6 +7,19 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/core.css" rel="stylesheet" type="text/css" />
 <!-- <link href="css/jquery.mobile.css" rel="stylesheet" type="text/css" /> -->
+<script>
+if (typeof console  != "undefined") 
+    if (typeof console.log != 'undefined')
+        console.olog = console.log;
+    else
+        console.olog = function() {};
+
+console.log = function(message) {
+    console.olog(message);
+    $('#debug').append('<p>' + message + '</p>');
+};
+console.error = console.debug = console.info =  console.log
+</script>	
 </head>
 <body>
 
@@ -14,6 +27,7 @@
 	<div class="row">
 		<div id="tabwr" class="col-sm-12 col-md-12 main">
 				<div id="wrapper">
+					<div id="debug"></div>
 					<div id="comments">
 						<div class="imgblock">
 							<img id="imgalb" src="images/no-image.jpg">
@@ -80,7 +94,6 @@ setInterval(function(){
 			$('#artist').text(tinfo.artist);
 			$('#song').text(tinfo.song);
 			$('#imgalb').attr('src', imgalb);
-			console.log(trackid);
 			$('#votebtnup').data('item', trackid);
 			$('#votebtndown').data('item', trackid);
 			
