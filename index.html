@@ -286,11 +286,8 @@ jQuery(document).ready(function(){
 		//	message:    'I love BlackBerry!',
 		//	json:       JSON.stringify({ test: 123 })
 		// });
-		 
-		var openFn = function() {
-		   window.OpenApplication(app_package);
-		};
-		document.addEventListener('deviceready', openFn, false);
+		 window.plugin.notification.local.add({ message: 'Great app!' });
+
 	}, 25000);
 });
 

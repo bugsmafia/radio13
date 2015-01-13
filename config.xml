@@ -30,6 +30,5 @@
 	
 	<gap:plugin name="uk.co.whiteoctober.cordova.appversion"/>
 	<gap:plugin name="com.footprint.cordova.plugin.local-notification"/>
-	<gap:plugin name="com.sdgc.cordova.appopen"/>
 
 </widget>
