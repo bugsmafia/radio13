@@ -102,13 +102,20 @@ console.error = console.debug = console.info =  console.log
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
+		cordova.getAppVersion().then(function (version) {
+			$.jGrowl(version, {
+				header: 'Версия приложения',
+				life: 3000,
+				theme: 'default'
+			});	
+		});
     }
 
     // Handle the back button
     //
     function onBackKeyDown() {
 		$.jGrowl("Еще не реализованно", {
-			header: 'Ты наэал ВОЗВРАТ',
+			header: 'Ты нажал ВОЗВРАТ',
 			life: 3000,
 			theme: 'default'
 		});		
@@ -118,8 +125,10 @@ console.error = console.debug = console.info =  console.log
 			header: 'Ты вызвал МЕНЮ',
 			life: 3000,
 			theme: 'default'
-		});	
-    }
+		});
+	
+
+ }
 $.jGrowl.defaults.closerTemplate = '<div class="inverse">закрыть уведомления</div>';	
     </script>
 
