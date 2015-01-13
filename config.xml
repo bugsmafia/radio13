@@ -9,8 +9,10 @@
     <description>Интернет радиостанция</description>
 
     <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">Разработчик: Сергей Осипов</author>
+	<preference name="fullscreen" value="true" />
+	<preference name="android-installLocation" value="auto" />
 	<gap:platform name="android" />
-	<preference name="permissions"                value="none"/>
+	<preference name="permissions" value="none"/>
 	
 	<icon src="icon/144-xxhdpi.png" />
     <icon src="icon/36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
