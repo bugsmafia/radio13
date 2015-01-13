@@ -1,9 +1,9 @@
 var rateObject = {
-	urlRate : '//app.radio13.ru/chart4/mod/rate.php',
-	urlReset : '//app.radio13.ru/chart4/mod/reset.php',
+	urlRate : 'https://app.radio13.ru/chart4/mod/rate.php',
+	urlReset : 'https://app.radio13.ru/chart4/mod/reset.php',
 	rate : function(obj) {
 		$('.rate').on('click', function(e) {
-			alert('rate on click');
+
 			var thisObj = jQuery(this);
 			var thisType = thisObj.hasClass('rateUp') ? 'up' : 'down';
 			var thisItem = thisObj.attr('data-item');
@@ -19,7 +19,7 @@ var rateObject = {
 				}
 			});
 			e.preventDefault();
-			alert('preventDefault');
+
 		});
 	},
 	reset : function(obj) {
