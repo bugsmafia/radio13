@@ -11,21 +11,6 @@
 <link href="css/messenger.css" rel="stylesheet" type="text/css" />
 <link href="css/messenger-theme-flat.css" rel="stylesheet" type="text/css" />
 <!-- <link href="css/jquery.mobile.css" rel="stylesheet" type="text/css" /> -->
-
-<script>
-if (typeof console  != "undefined") 
-    if (typeof console.log != 'undefined')
-        console.olog = console.log;
-    else
-        console.olog = function() {};
-
-console.log = function(message) {
-    console.olog(message);
-    $('#debug').append('<p>' + message + '</p>');
-};
-console.error = console.debug = console.info =  console.log
-</script>	
-
 </head>
 <body  onload="onLoad()">
 
@@ -34,7 +19,6 @@ console.error = console.debug = console.info =  console.log
 		<div id="tabwr" class="col-sm-12 col-md-12 main">
 				<div id="wrapper">
 					<div class="player" id="player"></div>
-					<div id="debug" style="color: #fff;position: absolute;top: 0px;right: 0px;z-index: 1000;"></div>
 
 					<div id="comments">
 					
@@ -320,7 +304,7 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 		mver = 0;
 		Messenger().run({
 			errorMessage: 'Старая версия приложения! Нажми "отмена" для отказа от автоматической загрузки свежей версии',
-			successMessage: 'Началась загрузка новой версии приложения',
+			successMessage: 'Началась автоматическая загрузка новой версии',
 			 action: function(opts) {
 				if (++mver < 5) {
 					return opts.error({
