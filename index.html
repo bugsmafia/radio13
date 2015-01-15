@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 
 <title>Радио 13</title>
+<script type="text/javascript" src="cordova.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/core.css" rel="stylesheet" type="text/css" />
 
@@ -32,10 +33,13 @@ console.error = console.debug = console.info =  console.log
 	<div class="row">
 		<div id="tabwr" class="col-sm-12 col-md-12 main">
 				<div id="wrapper">
+					<div class="player" id="player"></div>
 					<div id="debug" style="color: #fff;position: absolute;top: 0px;right: 0px;z-index: 1000;"></div>
 
 					<div id="comments">
 					
+
+
 
 
 						<div class="imgblock">
@@ -80,12 +84,10 @@ console.error = console.debug = console.info =  console.log
 		</div>
 	</div>
 </div>
-<div class="player" id="player"></div>
+
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/core.js" type="text/javascript"></script>
-
 <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
-
 <script src="js/messenger.js" type="text/javascript"></script>
 <script src="js/messenger-theme-flat.js" type="text/javascript"></script>
 
@@ -259,31 +261,47 @@ $(document).ready(function(){
 		
 
 
-		window.plugin.notification.local.add({
-			id:         1, // is converted to a string
-			title:      'Радио 13',
-			message:  'sss', 
-			sound: null
-		});
+		
 
 
 
 	}, 25000);
 	
 	setInterval(function(){
-		if (player.getStatus() == 0){
-			jp_container_1
-			$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
+		if (playstatus != getStatus()){
+			if (player.getStatus() == 0){
+				jp_container_1
+				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
+				window.plugin.notification.local.add({
+					id:         1,
+					title:      'Радио 13',
+					message:  'Трансляция не включнна', 
+					sound: null
+				});
+			}
+			if(player.getStatus() == 1){
+				$('#jp_container_1').removeClass('jp-state-seeking').addClass('jp-state-playing');
+				window.plugin.notification.local.add({
+					id:         1,
+					title:      'Радио 13',
+					message:  'Прямая трансляция', 
+					sound: null
+				});
+			}
+			if(player.getStatus() == 2){
+				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
+			}
+			if(player.getStatus() == 3){
+				$('#jp_container_1').removeClass('jp-state-playing').addClass('jp-state-seeking');
+				window.plugin.notification.local.add({
+					id:         1,
+					title:      'Радио 13',
+					message:  'Буферизация, ожидайте...', 
+					sound: null
+				});
+			}
 		}
-		if(player.getStatus() == 1){
-			$('#jp_container_1').removeClass('jp-state-seeking').addClass('jp-state-playing');
-		}
-		if(player.getStatus() == 2){
-			$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
-		}
-		if(player.getStatus() == 3){
-			$('#jp_container_1').removeClass('jp-state-playing').addClass('jp-state-seeking');
-		}
+		playstatus = player.getStatus();
 	}, 300);
 });
   
@@ -292,9 +310,9 @@ Messenger.options = {
     theme: 'flat'
 }
 
-cordova.getAppVersion().then(function (version) {
+
 	var version = version;
-});
+
 $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 	var appv = appver.v;
 	if (version =! appv){
@@ -304,7 +322,7 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 			errorMessage: 'Старая версия приложения! Нажми "отмена" для отказа от автоматической загрузки свежей версии',
 			successMessage: 'Началась загрузка новой версии приложения',
 			 action: function(opts) {
-				if (++mver < 2) {
+				if (++mver < 5) {
 					return opts.error({
 						status: 500,
 						readyState: 0,
