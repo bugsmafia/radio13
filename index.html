@@ -35,13 +35,7 @@ console.error = console.debug = console.info =  console.log
 					<div id="debug" style="color: #fff;position: absolute;top: 0px;right: 0px;z-index: 1000;"></div>
 
 					<div id="comments">
-					<div class="player" id="player"></div>
-
-		<input type="button" value="AAC" onclick="player.Play('http://play.radio13.ru/aac');"/>
-
-
-		<p>
-
+					
 
 
 						<div class="imgblock">
@@ -86,12 +80,12 @@ console.error = console.debug = console.info =  console.log
 		</div>
 	</div>
 </div>
+<div class="player" id="player"></div>
 <script src="js/jquery.min.js" type="text/javascript"></script>
-<!-- <script src="js/jquery.mobile.min.js" type="text/javascript"></script>-->
 <script src="js/core.js" type="text/javascript"></script>
-<!--<script src="js/jplayer.min.js" type="text/javascript"></script>-->
-<!--<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/jgrowl.js" type="text/javascript"></script>-->
+
+<!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+
 <script src="js/messenger.js" type="text/javascript"></script>
 <script src="js/messenger-theme-flat.js" type="text/javascript"></script>
 
@@ -303,7 +297,7 @@ cordova.getAppVersion().then(function (version) {
 });
 $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 	var appv = appver.v;
-	if (version =!appv){
+	if (version =! appv){
 		var mver;
 		mver = 0;
 		Messenger().run({
