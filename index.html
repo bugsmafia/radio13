@@ -252,7 +252,8 @@ $(document).ready(function(){
 	}, 25000);
 	
 	setInterval(function(){
-		if (playstatus != getStatus()){
+		var playstatus = 0;
+		if (playstatus != player.getStatus()){
 			if (player.getStatus() == 0){
 				jp_container_1
 				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
