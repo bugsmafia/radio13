@@ -255,6 +255,12 @@ $(document).ready(function(){
 			}
 			if(player.getStatus() == 2){
 				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
+				window.plugin.notification.local.add({
+					id:         1,
+					title:      'Радио 13',
+					message:  'Трансляция не включнна', 
+					sound: null
+				});
 			}
 			if(player.getStatus() == 3){
 				$('#jp_container_1').removeClass('jp-state-playing').addClass('jp-state-seeking');
@@ -296,7 +302,8 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 						responseText: 0
 					  });
 					} else {
-					  return opts.success(window.open ("http://jsc.simfatic-solutions.com","mywindow"));
+					  window.open ("https://app.radio13.ru/android/","mywindow");
+					  return opts.success();
 					}
 				  }
 				});
