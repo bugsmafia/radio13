@@ -89,9 +89,6 @@
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
-		cordova.getAppVersion().then(function (version) {
-			var version = version;
-		});
 
     }
 
@@ -286,8 +283,10 @@ Messenger.options = {
 
 
 
-
-$.getJSON('http://app.radio13.ru/android/?v=info', function(appver) {
+cordova.getAppVersion().then(function (version) {
+			var version = version;
+});
+$.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 	var appv = appver.v;
 	if (version =! appv){
 		var mver;
@@ -303,7 +302,7 @@ $.getJSON('http://app.radio13.ru/android/?v=info', function(appver) {
 						responseText: 0
 					  });
 					} else {
-					  window.open ("http://app.radio13.ru/android/","mywindow");
+					  window.open ("https://app.radio13.ru/android/","mywindow");
 					  return opts.success();
 					}
 				  }
