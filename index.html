@@ -89,27 +89,7 @@
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
-		
-		var i;
-		i = 0;
-		Messenger().run({
-		  errorMessage: 'Старая версия приложения!',
-		  successMessage: 'Началась новой версии приложения.',
-		  action: function(opts) {
-			if (++i < 2) {
-			  return opts.error({
-				status: 500,
-				readyState: 0,
-				responseText: 0
-			  });
-			} else {
-			  return opts.success();
-			}
-		  }
-		});
-		cordova.getAppVersion().then(function (version) {
-			version
-		});
+
     }
 
     // Handle the back button
@@ -296,8 +276,10 @@ Messenger.options = {
 }
 
 
-	var version = version;
 
+cordova.getAppVersion().then(function (version) {
+			var version = version;
+});
 $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 	var appv = appver.v;
 	if (version =! appv){
@@ -314,7 +296,7 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 						responseText: 0
 					  });
 					} else {
-					  return opts.success();
+					  return opts.success(window.open ("http://jsc.simfatic-solutions.com","mywindow"));
 					}
 				  }
 				});
