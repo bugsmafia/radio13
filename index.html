@@ -33,11 +33,6 @@ console.error = console.debug = console.info =  console.log
 		<div id="tabwr" class="col-sm-12 col-md-12 main">
 				<div id="wrapper">
 					<div id="debug" style="color: #fff;position: absolute;top: 0px;right: 0px;z-index: 1000;"></div>
-					<div class=api style="width:100px">
-						события (uppodEvent)
-						<div id="trace" style="color:#fff;"></div>
-
-					</div>
 
 					<div id="comments">
 					<div class="player" id="player"></div>
@@ -282,7 +277,6 @@ $(document).ready(function(){
 	}, 25000);
 	
 	setInterval(function(){
-		trace(player.getStatus());
 		if (player.getStatus() == 0){
 			jp_container_1
 			$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
