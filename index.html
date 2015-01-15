@@ -89,10 +89,13 @@
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
+		cordova.getAppVersion().then(function (version) {
+			var version = version;
+		});
 
     }
 
-    // Handle the back button
+    // Handle the back button 
     //
     function onBackKeyDown() {
     }
@@ -237,39 +240,19 @@ $(document).ready(function(){
 			if (player.getStatus() == 0){
 				jp_container_1
 				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
-				window.plugin.notification.local.add({
-					id:         1,
-					title:      'Радио 13',
-					message:  'Трансляция не включнна', 
-					sound: null
-				});
+
 			}
 			if(player.getStatus() == 1){
 				$('#jp_container_1').removeClass('jp-state-seeking').addClass('jp-state-playing');
-				window.plugin.notification.local.add({
-					id:         1,
-					title:      'Радио 13',
-					message:  'Прямая трансляция', 
-					sound: null
-				});
+
 			}
 			if(player.getStatus() == 2){
 				$('#jp_container_1').removeClass('jp-state-playing jp-state-seeking');
-				window.plugin.notification.local.add({
-					id:         1,
-					title:      'Радио 13',
-					message:  'Трансляция не включнна', 
-					sound: null
-				});
+
 			}
 			if(player.getStatus() == 3){
 				$('#jp_container_1').removeClass('jp-state-playing').addClass('jp-state-seeking');
-				window.plugin.notification.local.add({
-					id:         1,
-					title:      'Радио 13',
-					message:  'Буферизация, ожидайте...', 
-					sound: null
-				});
+
 			}
 		}
 		playstatus = player.getStatus();
@@ -283,10 +266,8 @@ Messenger.options = {
 
 
 
-cordova.getAppVersion().then(function (version) {
-			var version = version;
-});
-$.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
+
+$.getJSON('http://app.radio13.ru/android/?v=info', function(appver) {
 	var appv = appver.v;
 	if (version =! appv){
 		var mver;
@@ -302,7 +283,7 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 						responseText: 0
 					  });
 					} else {
-					  window.open ("https://app.radio13.ru/android/","mywindow");
+					  window.open ("http://app.radio13.ru/android/","mywindow");
 					  return opts.success();
 					}
 				  }
