@@ -34,6 +34,22 @@ console.error = console.debug = console.info =  console.log
 				<div id="wrapper">
 					<div id="debug" style="color: #fff;position: absolute;top: 0px;right: 0px;z-index: 1000;"></div>
 					<div id="comments">
+					<div class="player" id="player"></div>
+					<input type="button" value="Play" onclick="player.Play();"/>
+		<input type="button" value="Pause" onclick="player.Pause();"/>
+		<input type="button" value="Toggle" onclick="player.Toggle();"/>
+		<input type="button" value="Stop" onclick="player.Stop();"/>
+		<input type="button" value="Resize" onclick="Resize();"/>
+		<input type="button" value="Seek" onclick="player.Seek(10);"/>
+		<input type="button" value="Alert" onclick="player.Alert('message');"/>
+		<input type="button" value="Full" onclick="player.Full();"/>
+		<input type="button" value="New File" onclick="player.Play('http://uppod.net/ad.mp4|http://html5player.ru/html5.ogv');"/>
+		<p>
+		Requests:<input type="button" value="CurrentTime" onclick="trace(player.CurrentTime());"/>
+		<input type="button" value="Duration" onclick="trace(player.Duration());"/>
+		<input type="button" value="Played" onclick="trace(player.Played());"/>
+
+
 						<div class="imgblock">
 							<img id="imgalb" src="images/no-image.jpg">
 							<div class="comment">
@@ -89,6 +105,9 @@ console.error = console.debug = console.info =  console.log
 <script src="js/jgrowl.js" type="text/javascript"></script>-->
 <script src="js/messenger.js" type="text/javascript"></script>
 <script src="js/messenger-theme-flat.js" type="text/javascript"></script>
+
+<script src="js/uppod.js" type="text/javascript"></script>
+<script src="js/uppod_api.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     function onLoad() {
@@ -328,7 +347,8 @@ $.getJSON('https://app.radio13.ru/android/?v=info', function(appver) {
 	}
 });
 
-		
+	
 </script>
+<script type="text/javascript">this.player = new Uppod({m:"audio",uid:"player",file:"http://play.radio13.ru"});</script>
 </body>
 </html>
