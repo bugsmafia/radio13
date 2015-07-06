@@ -264,32 +264,6 @@ Messenger.options = {
     theme: 'flat'
 }
 
-
-
-
-$.getJSON('http://app.radio13.ru/android/?v=info', function(appver) {
-	var appv = appver.v;
-	if (version =! appv){
-		var mver;
-		mver = 0;
-		Messenger().run({
-			errorMessage: 'Старая версия приложения! Нажми "отмена" для отказа от автоматической загрузки свежей версии',
-			successMessage: 'Началась автоматическая загрузка новой версии',
-			 action: function(opts) {
-				if (++mver < 5) {
-					return opts.error({
-						status: 500,
-						readyState: 0,
-						responseText: 0
-					  });
-					} else {
-					  window.open ("http://app.radio13.ru/android/","mywindow");
-					  return opts.success();
-					}
-				  }
-				});
-	}
-});	
 </script>
 <script type="text/javascript">
 
