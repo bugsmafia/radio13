@@ -9,7 +9,7 @@
     <description>Интернет радиостанция</description>
 
     <author href="https://vk.com/bugsmafia" email="bugsmafia@gmail.com">Разработчик: Сергей Осипов</author>
-
+	<preference name="phonegap-version" value="3.7.1" />
 	<preference name="android-installLocation" value="auto" />
 	<gap:platform name="android" />
 	<preference name="permissions" value="none"/>
